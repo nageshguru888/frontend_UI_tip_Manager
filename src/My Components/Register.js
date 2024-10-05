@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { userCreateView } from '../api'; // Use the correct function
+import { userCreateView } from '../api'; 
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [proPic, setProPic] = useState(null); // For handling profile picture upload
-    const navigate = useNavigate(); // For navigation
+    const [proPic, setProPic] = useState(null); 
+    const navigate = useNavigate(); 
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -20,9 +20,9 @@ const Register = () => {
         }
 
         try {
-            await userCreateView(formData); // No need to store 'response' since it's unused
+            await userCreateView(formData); 
             alert('Registration successful!');
-            navigate('/'); // Redirect to login page after successful registration
+            navigate('/'); 
         } catch (error) {
             alert(`Error registering user: ${error.response?.data?.message || error.message}`);
         }
